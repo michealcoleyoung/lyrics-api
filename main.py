@@ -1,13 +1,13 @@
 from flask import Flask, render_template, url_for
 from lyricsgenius import Genius
-# import config
+import config
 import re
 
 app = Flask(__name__)
 
 @app.route("/")
 def main():
-    genius = Genius("QCXiSg7qw2jVD8qk57bH6JGgZLafGS3ZkWXcpwu6tGtNuvz9uiF92GDuMigYDYTS")
+    genius = Genius(config.API_KEY)
     artist_name = "Zero 7"
     song_name = "Warm Sound"
     artist = genius.search_artist(f"{artist_name}", max_songs=1, sort="title")
