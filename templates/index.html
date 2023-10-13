@@ -16,23 +16,25 @@
 </style>
 <body>
 
-    <h1>Lyrics Search API</h1>
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Artist</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      </div>
+    <h1>Lyrics Search API</h1><br>
+    <!-- search button -->
 
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Song</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      </div>
-      <button type="button" class="btn btn-primary">SUBMIT</button><br><br>
+    <form action="/" method="POST">
+        <div class="input-group">
+            <input type="text" class="form-control" name="search_query" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </div>
+    </form><br>
+    
 
-
-   <img src="{{image}}" alt="">   
-   <h1>Artist: {{artist}}</h1>
-   <h2>Song: {{title}}</h2>
-   <p>{{lyrics}}</p>
-  
+    <!-- <div class="artist-details">
+        <img src="{{image}}" alt="" class="img-thumbnail">   
+        <h1>Artist: {{artist}}</h1>
+        <h2>Song: {{title}}</h2>
+        <p>{{lyrics}}</p>
+    </div> -->
+      
 </body>
 </html>

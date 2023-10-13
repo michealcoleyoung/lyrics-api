@@ -1,11 +1,12 @@
 from flask import Flask, render_template, url_for
+import requests
 from lyricsgenius import Genius
 import config
 import re
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=['POST', 'GET'])
 def main():
     genius = Genius(config.API_KEY)
     artist_name = "Zero 7"
@@ -18,13 +19,17 @@ def main():
         # Use regular expression to remove everything before and after "Lyrics"
         lyrics = re.sub(r".*Lyrics", "", lyrics)
         # Use regular expression to remove everything after "Embed"
-        lyrics = re.sub(r"Embed.*", "", lyrics)
+        lyrics = re.sub(r"Embed*", "", lyrics)
         # Strip any leading or trailing whitespace
         return lyrics.strip()
 
     image = song.header_image_thumbnail_url
 
     print(clean_lyrics(song.lyrics))
+
+    if requests.method == 'POST':
+        search_query = request.form['search_query']
+        
 
     return render_template('index.html', artist=song.artist, title=song.title, lyrics=clean_lyrics(song.lyrics), image=image)
 
