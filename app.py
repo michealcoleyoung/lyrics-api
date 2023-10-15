@@ -1,5 +1,7 @@
 from azapi import AZlyrics
 from flask import Flask, render_template, request
+import pprint
+import time
 
 app = Flask(__name__)
 
@@ -8,12 +10,12 @@ def main():
     if request.method == 'POST':
         api = AZlyrics("google")
 
-        # We are Searching for Meghan's song "All about that bass"
+        # user song search
         api.title = request.form['search_query']
 
         lyrics = api.getLyrics()
 
-        formatted_lyrics = lyrics.replace('\n\n', '<p>').replace('\n', '<br>')
+        formatted_lyrics = lyrics.replace('\n', '<br>')
 
         # correct formatting of printed lyrics
         print(lyrics)
