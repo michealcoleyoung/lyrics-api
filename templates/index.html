@@ -15,6 +15,7 @@
         text-align: center;
         justify-content: center;
     }
+
 </style>
 <body>
 
@@ -50,16 +51,14 @@
 
 
   
-
+{% for song in songs %}
+<!-- <div class="d-grid gap-2 col-6 mx-auto"> -->
+    <button type="button" class="btn btn-outline-dark" width><strong>{{song|safe}}</strong></button>
+<!-- </div><br> -->
+{% endfor %}
   <p>{{error_message}}</p>
     <h1>{{song}}</h1>
     <p>{{lyrics|safe}}</p>
-
-    {% for song in songs %}
-    <!-- <div class="d-grid gap-2 col-6 mx-auto"> -->
-        <button type="button" class="btn btn-outline-dark" width><strong>{{song|safe}}</strong></button>
-    <!-- </div><br> -->
-    {% endfor %}
   
 </div>     
 </body>

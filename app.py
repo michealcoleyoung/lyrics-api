@@ -8,30 +8,11 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def main():
     api = AZlyrics("google")
-    # if request.method == 'POST':
-
-    #     # user song search
-    #     api.title = request.form['search_lyrics']
-    #     # api.artist = request.form['search_artist']
-
-    #     # correct formatting of printed lyrics
-
-    #     if api.title:
-    #         lyrics = api.getLyrics()
-    #         formatted_lyrics = lyrics.replace('\n', '<br>')
-    #         return render_template('index.html',song=api.title, lyrics=formatted_lyrics)
-    #     elif api.title == '':
-    #         error_message = "Please enter the name of the song you want lyrics for"
-    #         return render_template('index.html', error_message=error_message)
-    #     else:
-    #         return "<h1>There are no songs by this name</h1>"
     if request.method == 'POST':
 
-        # user song search
+        # user song and artist search
         api.artist = request.form['search_artist']
         api.title = request.form['search_lyrics']
-    
-        # correct formatting of printed lyrics
 
 
         if api.artist == '' and api.title == '':
@@ -50,7 +31,7 @@ def main():
             return render_template('index.html',song=api.title, lyrics=formatted_lyrics)
         else:
             print("========= ARTIST FIELD SONG FIELDS ARE NOT BLANK  =========")
-            lyrics = api.getLyrics(save=True)
+            lyrics = api.getLyrics()
             formatted_lyrics = lyrics.replace('\n', '<br>')
             return render_template('index.html',song=api.title, lyrics=formatted_lyrics)     
 
