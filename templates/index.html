@@ -10,13 +10,16 @@
 
 <style>
     body {
-        background-color: black;
-        color: white;
+        background-color: white;
+        color: black;
+        text-align: center;
+        justify-content: center;
     }
 </style>
 <body>
 
-<h1>Lyrics Search API</h1><br>
+<div class="d-grid gap-2 col-6 mx-auto">
+<h1 class="txt-center">Lyrics Search API</h1><br>
 
     <!-- DO NOT DELETE THE CODE BELOW -->
     <!-- <form action="/" method="post">
@@ -49,12 +52,15 @@
   
 
   <p>{{error_message}}</p>
-      <!-- <h1>{{song}}</h1> -->
-      <p>{{lyrics|safe}}</p>
-      {% for song in songs %}
-      {{song|safe}}<br>
-      {% endfor %}
+    <h1>{{song}}</h1>
+    <p>{{lyrics|safe}}</p>
+
+    {% for song in songs %}
+    <!-- <div class="d-grid gap-2 col-6 mx-auto"> -->
+        <button type="button" class="btn btn-outline-dark" width><strong>{{song|safe}}</strong></button>
+    <!-- </div><br> -->
+    {% endfor %}
   
-      
+</div>     
 </body>
 </html>
