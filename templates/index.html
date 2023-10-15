@@ -20,8 +20,17 @@
     <!-- search button -->
 
     <form action="/" method="post">
+      <div class="input-group">
+          <input type="text" class="form-control" name="search_artist" placeholder="Search artist" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
+          </div>
+      </div>
+  </form><br>
+
+    <form action="/" method="post">
         <div class="input-group">
-            <input type="text" class="form-control" name="search_query" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" name="search_lyrics" placeholder="Search lyrics" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
               <button class="btn btn-primary" type="submit">Search</button>
             </div>
@@ -46,6 +55,7 @@
 
       <h1>{{song}}</h1>
       <p>{{lyrics|safe}}</p>
+      <p>{{songs}}</p>
   
       
 </body>

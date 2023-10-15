@@ -11,7 +11,7 @@ def main():
         api = AZlyrics("google")
 
         # user song search
-        api.title = request.form['search_query']
+        api.title = request.form['search_lyrics']
 
         lyrics = api.getLyrics()
 
