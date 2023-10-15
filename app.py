@@ -1,37 +1,32 @@
-from flask import Flask, render_template, url_for
-import requests
-from lyricsgenius import Genius
-import config
-import re
+from azapi import AZlyrics
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/", methods=['POST', 'GET'])
+@app.route("/", methods=['GET', 'POST'])
 def main():
-    genius = Genius(config.API_KEY)
-    artist_name = "Zero 7"
-    song_name = "Warm Sound"
-    artist = genius.search_artist(f"{artist_name}", max_songs=1, sort="title")
-    song = genius.search_song(f"{song_name}", artist.name)
-    print(artist.save_lyrics)
+    if request.method == 'POST':
+        api = AZlyrics("google")
 
-    def clean_lyrics(lyrics):
-        # Use regular expression to remove everything before and after "Lyrics"
-        lyrics = re.sub(r".*Lyrics", "", lyrics)
-        # Use regular expression to remove everything after "Embed"
-        lyrics = re.sub(r"Embed*", "", lyrics)
-        # Strip any leading or trailing whitespace
-        return lyrics.strip()
+        # We are Searching for Meghan's song "All about that bass"
+        api.title = request.form['search_query']
 
-    image = song.header_image_thumbnail_url
+        lyrics = api.getLyrics()
 
-    print(clean_lyrics(song.lyrics))
+        formatted_lyrics = lyrics.replace('\n\n', '<p>').replace('\n', '<br>')
 
-    if requests.method == 'POST':
-        search_query = request.form['search_query']
-        
+        # correct formatting of printed lyrics
+        print(lyrics)
 
-    return render_template('index.html', artist=song.artist, title=song.title, lyrics=clean_lyrics(song.lyrics), image=image)
+        if api.title:
+            return render_template('index.html',song=api.title, lyrics=formatted_lyrics)
+        else:
+            return "<h1>There are no songs by this name</h1>"
+    
+
+    return render_template('index.html')
+
+    
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000, host='0.0.0.0')
+    app.run(debug=True)
