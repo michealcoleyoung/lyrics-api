@@ -12,19 +12,21 @@ def main():
 
         # user song search
         api.title = request.form['search_lyrics']
+        # api.artist = request.form['search_artist']
 
-        lyrics = api.getLyrics()
-
-        formatted_lyrics = lyrics.replace('\n', '<br>')
+        
 
         # correct formatting of printed lyrics
-        print(lyrics)
 
         if api.title:
+            lyrics = api.getLyrics()
+            formatted_lyrics = lyrics.replace('\n', '<br>')
             return render_template('index.html',song=api.title, lyrics=formatted_lyrics)
+        elif api.title == '':
+            return render_template('index.html')
         else:
             return "<h1>There are no songs by this name</h1>"
-    
+        
 
     return render_template('index.html')
 
