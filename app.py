@@ -37,10 +37,10 @@ def main():
     else:
         return render_template("index.html")
 
-@app.route("/get_lyrics", methods=['POST'])
+@app.route("/get_lyrics", methods=['GET'])
 def get_lyrics():
-    artist = request.form['artist']
-    title = request.form['title']
+    artist = request.args.get('artist')
+    title = request.args.get('title')
 
     api = AZlyrics("google")
     api.artist = artist
@@ -49,7 +49,8 @@ def get_lyrics():
     lyrics = api.getLyrics()
     formatted_lyrics = lyrics.replace('\n', '<br>')
 
-    return {'lyrics': formatted_lyrics}
+    return render_template('index.html', song=title, lyrics=formatted_lyrics)
+
      
 
 

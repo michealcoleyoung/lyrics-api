@@ -52,10 +52,9 @@
 
   
 {% for song in songs %}
-<!-- <div class="d-grid gap-2 col-6 mx-auto"> -->
-    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"><strong>{{song|safe}}</strong></a>
-<!-- </div><br> -->
+  <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" data-artist="{{ artist }}"><strong>{{song|safe}}</strong></a>
 {% endfor %}
+
 
   <p>{{error_message}}</p>
     <h1>{{song}}</h1>
