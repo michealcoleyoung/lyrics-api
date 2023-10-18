@@ -33,7 +33,24 @@ def main():
             print("========= ARTIST FIELD SONG FIELDS ARE NOT BLANK  =========")
             lyrics = api.getLyrics()
             formatted_lyrics = lyrics.replace('\n', '<br>')
-            return render_template('index.html',song=api.title, lyrics=formatted_lyrics)     
+            return render_template('index.html',song=api.title, lyrics=formatted_lyrics)
+    else:
+        return render_template("index.html")
+
+@app.route("/get_lyrics", methods=['POST'])
+def get_lyrics():
+    artist = request.form['artist']
+    title = request.form['title']
+
+    api = AZlyrics("google")
+    api.artist = artist
+    api.title = title
+
+    lyrics = api.getLyrics()
+    formatted_lyrics = lyrics.replace('\n', '<br>')
+
+    return {'lyrics': formatted_lyrics}
+     
 
 
 if __name__ == "__main__":
