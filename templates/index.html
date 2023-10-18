@@ -63,30 +63,5 @@
   
 </div> 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-  $(".btn-outline-dark").click(function(event) {
-    event.preventDefault(); // Prevent default link behavior
-    var songTitle = $(this).text(); // Get the song title from the clicked link
-    var artistName = $("#search_artist").val(); // Get the artist name from the input field
-
-    // Make an AJAX request to fetch lyrics for the selected song
-    $.ajax({
-      url: "/get_lyrics",
-      method: "POST",
-      data: {
-        artist: artistName,
-        title: songTitle
-      },
-      success: function(response) {
-        $("#song").text(songTitle); // Update the song title heading
-        $("#lyrics").html(response.lyrics); // Update the lyrics content
-      }
-    });
-  });
-});
-</script>
-
 </body>
 </html>
