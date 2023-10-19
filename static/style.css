@@ -1,0 +1,37 @@
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    background-color: white;
+    color: black;
+    text-align: center;
+    justify-content: center;
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    height: 100%;
+    overflow: auto;
+}
+
+#search-button {
+    width: 100%;
+    background-color: rgb(206, 78, 78) !important;
+    color: black;
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+}
+
+#search-button:hover {
+    width: 100%;
+    background-color: rgb(206, 78, 78) !important;
+    color: black;
+    box-shadow: 3px 3px 0px 0px black
+
+}
+
+#songs {
+    box-shadow: 6px 6px 0px 0px black;
+}
+
+#songs:hover {
+    box-shadow: 3px 3px 0px 0px black;
+}
