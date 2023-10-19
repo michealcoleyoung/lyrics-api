@@ -35,3 +35,9 @@ body {
 #songs:hover {
     box-shadow: 3px 3px 0px 0px black;
 }
+
+.app-title {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'VT323', monospace;
+    font-size: 100px;
+}
