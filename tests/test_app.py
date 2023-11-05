@@ -15,6 +15,7 @@ def test_home_page(client):
 def test_search_by_artist(client):
     response = client.post('/', data={'search_artist': 'The Beatles'})
     assert response.status_code == 200
+    assert response.data
     assert 'songs' in response.data
 
 def test_search_by_song_title(client):

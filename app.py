@@ -36,6 +36,7 @@ def main():
             return render_template('index.html',song=api.title, lyrics=formatted_lyrics)
     else:
         return render_template("index.html")
+    
 
 @app.route("/get_lyrics", methods=['GET'])
 def get_lyrics():
@@ -55,4 +56,4 @@ def get_lyrics():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
