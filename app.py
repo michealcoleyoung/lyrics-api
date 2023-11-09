@@ -14,23 +14,25 @@ def main():
         api.artist = request.form['search_artist']
         api.title = request.form['search_lyrics']
 
-
+        # ARTIST FIELD AND SONG FIELD ARE BLANK
         if api.artist == '' and api.title == '':
-            print("========= ARTIST FIELD AND SONG FIELD ARE BLANK =========")
             error_message = "Please enter either an artist or song name"
             return render_template('index.html', error_message=error_message)
+        
+        # ARTIST FIELD IS NOT BLANK AND SONG FIELD IS BLANK
         elif api.artist and api.title == '':
-            print("========= ARTIST FIELD IS NOT BLANK AND SONG FIELD IS BLANK  =========")
             songs = api.getSongs()
             print(songs)
             return render_template('index.html',songs=songs)
+        
+        # ARTIST FIELD IS BLANK AND SONG FIELD IS NOT BLANK
         elif api.artist == '' and api.title:
-            print("========= ARTIST FIELD IS BLANK AND SONG FIELD IS NOT BLANK  =========")
             lyrics = api.getLyrics()
             formatted_lyrics = lyrics.replace('\n', '<br>')
             return render_template('index.html',song=api.title, lyrics=formatted_lyrics)
+        
+        # ARTIST FIELD SONG FIELDS ARE NOT BLANK
         else:
-            print("========= ARTIST FIELD SONG FIELDS ARE NOT BLANK  =========")
             lyrics = api.getLyrics()
             formatted_lyrics = lyrics.replace('\n', '<br>')
             return render_template('index.html',song=api.title, lyrics=formatted_lyrics)
