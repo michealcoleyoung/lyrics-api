@@ -28,8 +28,11 @@
   <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" data-artist="{{ artist }}" id="songs"><strong>{{song|safe}}</strong></a><br>
 {% endfor %}
 
-
-  <p>{{error_message}}</p>
+{% if error_message %}
+  <div class="alert alert-light-danger color-danger" role="alert">
+      <b>{{error_message}}</b>
+    </div>
+{% endif %}
     <h1>{{song}}</h1>
   <p>{{lyrics|safe}}</p>
   
