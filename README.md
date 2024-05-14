@@ -3,6 +3,8 @@
 This Flask application allows users to obtain lyrics to songs. Users can search for lyrics by providing either the artist name, the song title, or both.
 
 ![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
 
 ## Table of Contents
 
