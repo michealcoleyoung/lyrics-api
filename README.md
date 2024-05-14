@@ -24,11 +24,14 @@ This Flask application allows users to obtain lyrics to songs. Users can search 
   
 2. Navigate to the project directory:
   
-  `$ cd lyrics-api`
+  ```
+  $ cd lyrics-api
+  ```
   
 3. Install dependencies:
-  
-  `$ pip install -r requirements.txt`
+  ```
+  $ pip install -r requirements.txt
+  ```
   
 
 ## Usage
