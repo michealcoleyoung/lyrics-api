@@ -2,6 +2,8 @@
 
 This Flask application allows users to obtain lyrics to songs. Users can search for lyrics by providing either the artist name, the song title, or both.
 
+![alt text](image.png)
+
 ## Table of Contents
 
 - [Features](#features)
@@ -30,7 +32,10 @@ This Flask application allows users to obtain lyrics to songs. Users can search 
   
 3. Install dependencies:
   ```
-  $ pip install -r requirements.txt
+  $ pip install Flask
+  ```
+  ```
+  $ pip install azlyrics
   ```
   
 
