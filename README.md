@@ -21,16 +21,19 @@ This Flask application allows users to obtain lyrics to songs. Users can search 
 ## Installation
 
 1. Clone the repository: https://github.com/michealcoleyoung/lyrics-api.git
-
-2. Navigate to the project directory: cd lyrics-api
-
-3. Install dependencies: pip install -r requirements.txt
-
+  
+2. Navigate to the project directory:
+  
+  `$ cd lyrics-api`
+  
+3. Install dependencies:
+  
+  `$ pip install -r requirements.txt`
+  
 
 ## Usage
 
 1. Run the Flask application: python app.py
-
 
 2. Open your web browser and navigate to `http://127.0.0.1:5000/`.
 3. Enter the artist name and/or song title in the provided input fields.
@@ -48,11 +51,3 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-
-
-
-
-
-
-
